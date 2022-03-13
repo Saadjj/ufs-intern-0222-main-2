@@ -22,7 +22,10 @@ public class CheckFraudAdapter extends EksAdapter {
     message.setAccountId(params.getAccountId());
     message.setAmount(params.getAmount());
     message.setOperationType(operTypeLabel(params.getOperationTypeCode()));
+    message.setOperationType(operTypeLabel(params.getOperationTypeCode()));
   }
+
+
 
   private static void map(SrvCheckWithFraudRsMessage message,
       ExternalEntityContainer<Boolean> container) {
