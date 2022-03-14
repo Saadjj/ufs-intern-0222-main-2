@@ -1,11 +1,9 @@
 package ru.philit.ufs.model.converter.esb.as_fs;
 
-import ru.philit.ufs.model.entity.esb.as_fs.SrvCommitOperationRq;
 import ru.philit.ufs.model.entity.esb.as_fs.SrvUpdOperationRq;
 import ru.philit.ufs.model.entity.oper.Operation;
-import ru.philit.ufs.model.entity.oper.OperationStatus;
 
-public class SrvUpdOperationRqAdapter extends AsFsAdapter{
+public class SrvUpdOperationRqAdapter extends AsFsAdapter {
 
     private static void map(Operation operation, SrvUpdOperationRq.SrvUpdOperationRqMessage message) {
         message.setOperationId(operation.getOperationId());
