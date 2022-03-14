@@ -1,7 +1,9 @@
 package ru.philit.ufs.model;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
+import javax.xml.datatype.XMLGregorianCalendar;
 import lombok.Getter;
 import ru.philit.ufs.model.converter.ConverterBaseTest;
 import ru.philit.ufs.model.converter.esb.eks.EksAdapterBaseTest;
@@ -9,14 +11,44 @@ import ru.philit.ufs.model.entity.account.Account;
 import ru.philit.ufs.model.entity.account.AccountType;
 import ru.philit.ufs.model.entity.account.AccountancyType;
 import ru.philit.ufs.model.entity.common.ExternalEntityRequest;
+import ru.philit.ufs.model.entity.common.OperationTypeCode;
 import ru.philit.ufs.model.entity.esb.eks.SrvAccountByCardNumRs;
 import ru.philit.ufs.model.entity.esb.eks.SrvAccountByCardNumRs.SrvAccountByCardNumRsMessage;
+import ru.philit.ufs.model.entity.oper.Operation;
+import ru.philit.ufs.model.entity.oper.OperationStatus;
 import ru.philit.ufs.model.entity.request.RequestType;
 
 /**
  * Контейнер данных используемых в тестировании интеграции.
  */
 public class TestData {
+
+  //region For Operation Adapters Test
+  public static final String OPERATION_ID = "30b7c486-1dc2-4ed7-8b53-a81dc7af5b65";
+  public static final String WORK_PLACE_UID = "66170732-1c50-494c-87f3-71e6dca41322";
+  public static final String OPERATOR_ID = "3c149bdb-bc98-4345-92cc-93d9a4dde94b";
+  public static final String ROLLBACK_REASON = "Отмена операции пользователем";
+  public static final String CASH_ORDER_ID = "3c149bdb-bc98-4345-92cc-93d9a4dde94b";
+  public static final String OPERATION_NUM = "1";
+  public static final String REP_ID = "397f12ce-d11e-44c5-ad37-0e68d0de8d64";
+  public static final String SENDER_ACCOUNT_TYPE_ID = "19554e5a-b3bc-490a-9c0e-20ce5e2fb20d";
+  public static final String SENDER_ACCOUNT_CURRENCY_TYPE = "дол";
+  public static final String SENDER_BANK = "Идеал-Банк";
+  public static final String SENDER_BANK_BIC = "Идеал-Банк BIC";
+  public static final String SENDER_ACCOUNT_ID = "Идеал-Банк BIC";
+  public static final BigDecimal AMOUNT = new BigDecimal("250");
+  public static final String RECIPIENT_ACCOUNT_TYPE_ID = "bec13a61-860f-4616-803e-90c516519249";
+  public static final String RECIPIENT_ACCOUNT_CURRENCY_TYPE = "руб";
+  public static final String RECIPIENT_BANK = "Пром-Инвест-Банк";
+  public static final String RECIPIENT_BANK_BIC = "Пром-Инвест-Банк BIC";
+  public static final String RECIPIENT_ACCOUNT_ID = "d9bb88c7-de00-49ac-b480-28e83976b7f4";
+  public static final Date CREATE_FROM = ConverterBaseTest.date(2017, 5, 4, 0, 0);
+  public static final Date CREATED_TO = ConverterBaseTest.date(2017, 7, 4, 0, 0);
+  public static final XMLGregorianCalendar XML_CREATED_FROM = ConverterBaseTest.xmlCalendar(2017, 5, 4, 0, 0);
+  public static final XMLGregorianCalendar XML_CREATED_TO = ConverterBaseTest.xmlCalendar(2017, 7, 4, 0, 0);
+
+  //endregion
+
 
   public static final String SESSION_ID = "444";
   public static final String CARD_NUMBER = "4894123569871254";
@@ -76,11 +108,42 @@ public class TestData {
   private Account account;
   @Getter
   private SrvAccountByCardNumRs accountResponse;
+  @Getter
+  private Operation operation;
 
   /**
    * Конструктор контейнера данных.
    */
   public TestData() {
+
+    //region For Operation Adapters Test
+    operation = new Operation();
+    operation.setOperationId(OPERATION_ID);
+    operation.setOperatorId(OPERATOR_ID);
+    operation.setWorkPlaceUId(WORK_PLACE_UID);
+    operation.setTypeCode(OperationTypeCode.FROM_CARD_WITHDRAW);
+    operation.setCreatedFrom(CREATE_FROM);
+    operation.setCreatedTo(CREATED_TO);
+    operation.setRollbackReason(ROLLBACK_REASON);
+    operation.setStatus(OperationStatus.NEW);
+    operation.setCashOrderId(CASH_ORDER_ID);
+    operation.setOperationNum(OPERATION_NUM);
+    operation.setRepId(REP_ID);
+    operation.setSenderAccountTypeId(SENDER_ACCOUNT_TYPE_ID);
+    operation.setSenderAccountCurrencyType(SENDER_ACCOUNT_CURRENCY_TYPE);
+    operation.setSenderBank(SENDER_BANK);
+    operation.setSenderBankBIC(SENDER_BANK_BIC);
+    operation.setSenderAccountId(SENDER_ACCOUNT_ID);
+    operation.setAmount(AMOUNT);
+    operation.setRecipientAccountTypeId(RECIPIENT_ACCOUNT_TYPE_ID);
+    operation.setRecipientAccountCurrencyType(RECIPIENT_ACCOUNT_CURRENCY_TYPE);
+    operation.setRecipientBank(RECIPIENT_BANK);
+    operation.setRecipientBankBIC(RECIPIENT_BANK_BIC);
+    operation.setRecipientAccountId(RECIPIENT_ACCOUNT_ID);
+    operation.setCurrencyType(CURRENCY_TYPE);
+    //endregion
+
+
     accountByCardNumberRequest = new ExternalEntityRequest();
     accountByCardNumberRequest.setSessionId(SESSION_ID);
     accountByCardNumberRequest.setEntityType(RequestType.ACCOUNT_BY_CARD_NUMBER);

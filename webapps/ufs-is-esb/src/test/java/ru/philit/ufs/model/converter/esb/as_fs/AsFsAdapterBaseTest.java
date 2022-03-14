@@ -2,7 +2,6 @@ package ru.philit.ufs.model.converter.esb.as_fs;
 
 import org.junit.Assert;
 import ru.philit.ufs.model.converter.ConverterBaseTest;
-import ru.philit.ufs.model.converter.esb.pprb.PprbAdapter;
 import ru.philit.ufs.model.entity.common.ExternalEntity;
 import ru.philit.ufs.model.entity.esb.as_fs.HeaderInfoType;
 
