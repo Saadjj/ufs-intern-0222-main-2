@@ -45,8 +45,8 @@ public class Operation extends ExternalEntity {
   private String recipientBankBIC;
   private String recipientAccountId;
   private String currencyType;
-  private XMLGregorianCalendar createdFrom;
-  private XMLGregorianCalendar createdTo;
+  private Date createdFrom;
+  private Date createdTo;
 
 
 

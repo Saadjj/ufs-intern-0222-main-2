@@ -8,8 +8,8 @@ public class SrvGetOperationRqAdapter extends AsFsAdapter{
 
     private static  void map(Operation operation, SrvGetOperationRq.SrvGetOperationRqMessage message){
         message.setOperationId(operation.getOperationId());
-        message.setCreatedFrom(operation.getCreatedFrom());
-        message.setCreatedTo(operation.getCreatedFrom());
+        message.setCreatedFrom(xmlCalendar(operation.getCreatedFrom()));
+        message.setCreatedTo(xmlCalendar(operation.getCreatedTo()));
     }
     /**
      * Возвращает объект запроса на получение операции.
