@@ -1,8 +1,6 @@
 package ru.philit.ufs.model.converter.esb.as_fs;
 
-import ru.philit.ufs.model.entity.esb.as_fs.SrvCreateOperationRq;
 import ru.philit.ufs.model.entity.esb.as_fs.SrvRollbackOperationRq;
-import ru.philit.ufs.model.entity.esb.as_fs.SrvUpdOperationRq;
 import ru.philit.ufs.model.entity.oper.Operation;
 
 public class SrvRollbackOperationRqAdapter extends AsFsAdapter{
