@@ -10,8 +10,8 @@ import ru.philit.ufs.model.entity.oper.Operation;
 
 public class SrvCreateOperationRqTest extends AsFsAdapterTest {
 
-    private static final String WORK_PLACE_UID = "125";
-    private static final String OPERATOR_ID = "129";
+    private static final String WORK_PLACE_UID = "66170732-1c50-494c-87f3-71e6dca41322";
+    private static final String OPERATOR_ID = "3c149bdb-bc98-4345-92cc-93d9a4dde94b";
 
     private final Operation operation = new Operation();
 
