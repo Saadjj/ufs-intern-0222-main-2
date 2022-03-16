@@ -46,7 +46,6 @@ public class TestData {
   public static final Date CREATED_TO = ConverterBaseTest.date(2017, 7, 4, 0, 0);
   public static final XMLGregorianCalendar XML_CREATED_FROM = ConverterBaseTest.xmlCalendar(2017, 5, 4, 0, 0);
   public static final XMLGregorianCalendar XML_CREATED_TO = ConverterBaseTest.xmlCalendar(2017, 7, 4, 0, 0);
-
   //endregion
 
 
